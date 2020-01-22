@@ -1,0 +1,9 @@
+{
+    "path" : "~/BatteryOptimisation",
+    "sortOrder" : [
+        {
+            "ascending" : true,
+            "columnIndex" : 2
+        }
+    ]
+}

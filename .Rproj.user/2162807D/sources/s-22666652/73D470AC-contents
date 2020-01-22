@@ -1,0 +1,236 @@
+# Define library package directory
+mylib = paste0("C:/Users/corkok/Documents/ClusteringProject/Radius","/RLibraryFiles/")
+print(mylib)
+load("C:/Users/corkok/Documents/ClusteringProject/Radius/Radius.RData")
+
+# Install required packages unless they already exist (does not check for updates to packages)
+list.of.packages <- c("ggplot2", "data.table","sqldf", "quantreg", "plyr", "reshape2", 
+                      "factoextra", "hashmap", "dplyr", "stringr", "scales", "RColorBrewer", "shiny","shinyWidgets")
+new.packages <- list.of.packages[!(list.of.packages %in% installed.packages(lib.loc=mylib)[,"Package"])]
+if(length(new.packages)) install.packages(new.packages, lib = mylib, repos = "http://cran.rstudio.com/")
+
+print("Already Installed:")
+print(installed.packages()[ is.na(installed.packages()[,"Priority"]), c("Package", "Version")])
+print("Newly Installed:")
+print(new.packages)
+
+
+# Includes required packages
+library(ggplot2, lib.loc = mylib) # ggplot plotting package
+library(data.table, lib.loc = mylib) # Working with data tables
+library(sqldf, lib.loc = mylib) # Reading data using an sql query
+library(quantreg, lib.loc = mylib) # Finding quantiles
+library(plyr, lib.loc = mylib) # Used to split apart and combine data back together
+library(reshape2, lib.loc = mylib) # Transforming data (Aggregating and Melting)
+library(factoextra, lib.loc = mylib) # Alternative kmeans clustering package
+library(hashmap, lib.loc = mylib) # Creating a map from IDs to Feeders, Categories, Clusters, etc.
+library(dplyr, lib.loc = mylib) # Performing actions by group
+library(stringr, lib.loc = mylib) # String manipulation package
+library(scales, lib.loc = mylib) # Scales data (for clustering purposes)
+library(RColorBrewer, lib.loc = mylib) # Alternative colour palette
+library(shiny, lib.loc = mylib) # Interactive plotting
+library(shinyWidgets, lib.loc = mylib) # Interactive plotting
+
+
+
+dateRange  = levels(Consumption.df.subset$READ_TIMESTAMP_DST)
+defaultDate = levels(Consumption.df.subset$READ_TIMESTAMP_DST)[1]
+clusterCount.df = as.data.frame(Consumption.df.subset[(Consumption.df.subset$READ_TIMESTAMP_DST == defaultDate),] 
+                                %>% count(Cluster.nosc))
+Consumption_Map = hashmap(paste0(Consumption.df.subset$ID,"_",
+                                 Consumption.df.subset$READ_TIMESTAMP_DST),
+                          Consumption.df.subset$CONSUMPTION_PREVIOUS_HOUR)
+
+
+
+lapply(seq(clusterCount.df$n), function(i) {
+  sliderInput(inputId = paste0("cluster", clusterCount.df$Cluster.nosc[i]),
+              label = paste0("Cluster ", clusterCount.df$Cluster.nosc[i]),
+              min = 1, max = maxConsumers,
+              value = clusterCount.df$n[i])
+})
+
+ui <- fluidPage(
+  titlePanel(title=h4("Simulation of total consumption", align="center")),
+  sidebarPanel( 
+    helpText("Select the number of simulations, consumers in each cluster, and the date and time"),
+    sliderInput(inputId = "numsamp", 
+                label = paste("Number of Simulations:"),
+                min = 1, max = maxSample,
+                value = 1000
+                ),
+    lapply(seq(clusterCount.df$n), function(i) {
+      sliderInput(inputId = paste0("cluster", clusterCount.df$Cluster.nosc[i]),
+                  label = paste0("Cluster ", clusterCount.df$Cluster.nosc[i]),
+                  min = 1, max = maxConsumers,
+                  value = clusterCount.df$n[i])
+    }),
+    dateInput(inputId = "date",
+              label = "Date:",
+              min = minDate, max = maxDate,
+              startview = "decade"
+              ),
+    sliderInput(inputId = "hour", 
+                label = paste("Time:"),
+                min = 0, max = 23,
+                value = 0
+                )
+  ),
+  mainPanel(plotOutput("Simulation2"))
+)
+
+server <- function(input,output,session){
+  session$onSessionEnded(function() {
+    stopApp()
+  })
+  dat <- reactive({
+    IDsubset = matrix(list(), length(clusterCount.df$n))
+    NumCon =  rep(NA, length(clusterCount.df$n))
+    for (j in 1:length(clusterCount.df$n)) {
+      IDsubset[[j]] = Consumption.df.subset$ID[Consumption.df.subset$Cluster.nosc == j]
+      NumCon[j] = input[[paste0("cluster", j)]]
+    }
+    TotalConsumption = data.frame(Cluster = rep(NA, input$numsamp * (length(clusterCount.df$n)+1)),
+                                  Iteration = rep(NA, input$numsamp * (length(clusterCount.df$n)+1)), 
+                                  Consumption = rep(NA, input$numsamp * (length(clusterCount.df$n)+1)))
+    for (i in 1:input$numsamp){
+      rowbegin = (i-1) * (length(clusterCount.df$n)+1)
+      rowend = i * (length(clusterCount.df$n)+1)
+      for (j in 1:length(clusterCount.df$n)) {
+        ID_sample = sample(IDsubset[[j]], NumCon[j], replace = TRUE) 
+        TotalConsumption[rowbegin + j,"Cluster"] = j
+        TotalConsumption[rowbegin + j,"Iteration"] = i
+        TotalConsumption[rowbegin + j,"Consumption"] = sum(Consumption_Map[[paste0(ID_sample,"_",input$date, " ", str_pad(input$hour, 2, pad = "0"), ":00:00")]])  
+      }
+      TotalConsumption[rowend,"Cluster"] = "Total"
+      TotalConsumption[rowend,"Iteration"] = i
+      TotalConsumption[rowend,"Consumption"] = sum(TotalConsumption[(rowbegin+1):(rowend-1),"Consumption"])
+    }
+    return(TotalConsumption)
+  })
+  output$Simulation2<-renderPlot({ ggplot(dat(),aes(x=Consumption, fill = Cluster)) + 
+      geom_histogram(binwidth =20) + 
+      scale_x_continuous("Consumption (kWh)") +
+      facet_grid(Cluster~.)},height = 400,width = 600)}
+shinyApp(ui, server)
+
+ 
+#
+#{ ggplot(dat(),aes(x=Consumption)) + geom_histogram(binwidth =50)},height = 400,width = 600)}
+#   output$Simulation1<-renderPlot({
+#ggplot(dat(),aes(x=Consumption)) + geom_histogram()},height = 400,width = 600)}
+#shinyApp(ui, server)
+#
+
+
+
+
+
+
+minDate  = as.Date(levels(Consumption.df.subset$READ_TIMESTAMP_DST)[1])
+maxDate  = as.Date(levels(Consumption.df.subset$READ_TIMESTAMP_DST)[length(levels(Consumption.df.subset$READ_TIMESTAMP_DST))])
+maxSample = 200
+maxConsumers = 500
+nDays = 6
+Con.df = data.table(Consumption.df.subset[,c("ID","READ_TIMESTAMP_DST","Cluster.nosc","CONSUMPTION_PREVIOUS_HOUR")])
+names(Con.df) = c("ID","Date","Cluster","Consumption")
+
+ui <- fluidPage(
+  titlePanel(title=h4("Simulation of total consumption", align="center")),
+  sidebarPanel( 
+    helpText("Select the number of simulations, consumers in each cluster, and the date and time"),
+    sliderInput(inputId = "numsamp", 
+                label = paste("Number of Simulations:"),
+                min = 1, max = maxSample,
+                value = 50
+    ),
+    lapply(seq(clusterCount.df$n), function(i) {
+      sliderInput(inputId = paste0("cluster", clusterCount.df$Cluster.nosc[i]),
+                  label = paste0("Cluster ", clusterCount.df$Cluster.nosc[i]),
+                  min = 1, max = maxConsumers,
+                  value = clusterCount.df$n[i])
+    }),
+    dateInput(inputId = "sdate",
+              label = "Start Date:",
+              value = minDate,
+              min = minDate, max = maxDate - nDays,
+              startview = "decade"
+    )
+  ),
+  mainPanel(plotOutput("Simulation3"))
+)
+
+server <- function(input,output,session){
+  session$onSessionEnded(function() {
+    stopApp()
+  })
+  dat <- reactive({
+    
+    IDsubset = matrix(list(), length(clusterCount.df$n))
+    NumCon =  rep(NA, length(clusterCount.df$n))
+    Datesubset = as.character(seq(as.POSIXct(input$sdate), by = "hours", length = (nDays * 24 + 24)))
+    Con.df.subset = Con.df[(Con.df$Date %in% Datesubset),]
+    for (j in 1:length(clusterCount.df$n)) {
+      IDsubset[[j]] = Con.df.subset$ID[Con.df.subset$Cluster == j]
+      NumCon[j] = input[[paste0("cluster", j)]]
+    }
+    TC_temp = data.frame(Date = as.Date(character()),
+                         Cluster = character(),
+                         Iteration = integer(),
+                         Consumption = double()
+    )
+    
+    for (i in 1:input$numsamp){
+      for (j in 1:length(clusterCount.df$n)) {
+        ID_sample = data.frame(ID = sample(IDsubset[[j]], NumCon[j], replace = TRUE))
+        Temp = merge(ID_sample,Con.df.subset, by = "ID", all.x=TRUE, sort = FALSE)
+        Temp = aggregate(Consumption ~ Date + Cluster, Temp, sum)
+        Temp$Iteration = i
+        TC_temp = rbind(TC_temp,Temp)
+      }
+    }
+    TotalConsumption = ddply(TC_temp, .(Date, Cluster),
+                             function(x) quantile(x$Consumption, probs=c(0.01,0.1,0.25,0.5,0.75,0.9,0.99)))
+    TotalConsumption.2 = ddply(TC_temp, .(Date, Cluster), 
+                               function(x) mean(x$Consumption))
+    TotalConsumption = cbind(TotalConsumption,TotalConsumption.2$V1)
+    names(TotalConsumption) = c("Date", "Cluster", "p01", "p10", "p25", "p50", "p75", "p90", "p99", "mean")
+    print(head(TotalConsumption[(TotalConsumption$Cluster == 2),]))
+    gg = ggplot(TotalConsumption,aes(x=as.POSIXct(Date), y=mean, colour = "Mean")) + 
+      geom_ribbon(data = TotalConsumption, aes(x=as.POSIXct(Date), ymin=p01, ymax = p10, fill = "1% - 99%"), inherit.aes = FALSE) +
+      geom_ribbon(data = TotalConsumption, aes(x=as.POSIXct(Date), ymin=p10, ymax = p25, fill = "10% - 90%"), inherit.aes = FALSE) +
+      geom_ribbon(data = TotalConsumption, aes(x=as.POSIXct(Date), ymin=p25, ymax = p75, fill = "25% - 75%"), inherit.aes = FALSE) +
+      geom_ribbon(data = TotalConsumption, aes(x=as.POSIXct(Date), ymin=p75, ymax = p90, fill = "10% - 90%"), inherit.aes = FALSE) +
+      geom_ribbon(data = TotalConsumption, aes(x=as.POSIXct(Date), ymin=p90, ymax = p99, fill = "1% - 99%"), inherit.aes = FALSE) +
+      geom_line(data = TotalConsumption, aes(x=as.POSIXct(Date), y=p50, colour = "Median"), inherit.aes = FALSE) +
+      geom_line() +
+      scale_y_continuous("Consumption (kWh)") +
+      scale_x_datetime("Date") +
+      scale_colour_brewer('Average', palette = 'Set1') +
+      scale_fill_brewer('Percentile Range', palette = 'Set3') +
+      facet_grid(Cluster~.)
+    ggsave("simDateRange.pdf", plot = gg)
+    return(gg)
+  })
+  output$Simulation3<-renderPlot({ dat() },height = 800,width = 500)}
+shinyApp(ui, server)
+
+
+
+rowbegin = (j-1) * length(Datesubset)
+rowend = j * length(Datesubset)
+ID_sample = sample(IDsubset[[j]], NumCon[j], replace = TRUE) 
+for (k in 1:length(Datesubset)) {
+  TC_temp[rowbegin + k,"Date"] = Datesubset[k]
+  TC_temp[rowbegin + k,"Cluster"] = j
+  TC_temp[rowbegin + k,"Iteration"] = i
+  TC_temp[rowbegin + k,"Stat"] = "mean"
+  Consumption = Consumption_Map[[paste0(ID_sample,"_",k)]]
+  TC_temp[rowbegin + k,"Consumption"] = mean(Consumption)
+}
+TotalConsumption = rbind(TotalConsumption,TC_temp)
+
+
+
+ID = data.frame(ID=c(668,376,668))
+
