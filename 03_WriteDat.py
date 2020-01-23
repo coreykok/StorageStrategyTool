@@ -10,11 +10,11 @@ Input          : - Arrays with the values:
                  - S_0_Input
                  - t
                  - s
-                 - q_charge
-                 - q_disch
-                 - e_stor
-                 - e_charge
-                 - e_disch
+                 - q_ch
+                 - q_dc
+                 - e_st
+                 - e_ch
+                 - e_dc
                  - S_max
                  - Pi_Input
 
@@ -23,11 +23,11 @@ Output         : - .dat file containing:
                     - t
                     - s
                     - S_0
-                    - q_charge
-                    - q_disch
-                    - e_stor
-                    - e_charge
-                    - e_disch
+                    - q_ch
+                    - q_dc
+                    - e_st
+                    - e_ch
+                    - e_dc
                     - S_max
                     - Pi
 
@@ -54,38 +54,38 @@ f.write(";" + "\n" + "\n")
 
 # PARAMETERS
 
-f.write("param t_delta := " + str(T_delta) + ";" + "\n\n")
+f.write("param delta_t := " + str(delta_t) + ";" + "\n\n")
 
-temp = q_charge
-f.write("param q_charge := " + "\n")
+temp = q_ch
+f.write("param q_ch := " + "\n")
 for j in range(0, len(s)):
     f.write(temp.index[j] + " ")
     f.write(str(temp[j]) + "\n")
 f.write(";" + "\n" + "\n")
 
-temp = q_disch
-f.write("param q_disch := " + "\n")
+temp = q_dc
+f.write("param q_dc := " + "\n")
 for j in range(0, len(s)):
     f.write(temp.index[j] + " ")
     f.write(str(temp[j]) + "\n")
 f.write(";" + "\n" + "\n")
 
-temp = e_stor
-f.write("param e_stor := " + "\n")
+temp = e_st
+f.write("param e_st := " + "\n")
 for j in range(0, len(s)):
     f.write(temp.index[j] + " ")
     f.write(str(temp[j]) + "\n")
 f.write(";" + "\n" + "\n")
 
-temp = e_charge
-f.write("param e_charge := " + "\n")
+temp = e_ch
+f.write("param e_ch := " + "\n")
 for j in range(0, len(s)):
     f.write(temp.index[j] + " ")
     f.write(str(temp[j]) + "\n")
 f.write(";" + "\n" + "\n")
 
-temp = e_disch
-f.write("param e_disch := " + "\n")
+temp = e_dc
+f.write("param e_dc := " + "\n")
 for j in range(0, len(s)):
     f.write(temp.index[j] + " ")
     f.write(str(temp[j]) + "\n")
@@ -112,15 +112,15 @@ for j in range(0, len(s)):
     f.write(str(temp[j]) + "\n")
 f.write(";" + "\n" + "\n")
 
-temp = pen_p
-f.write("param pen_p := " + "\n")
+temp = c_p
+f.write("param c_p := " + "\n")
 for j in range(0, len(s)):
     f.write(temp.index[j] + " ")
     f.write(str(temp[j]) + "\n")
 f.write(";" + "\n" + "\n")
 
-temp = pen_m
-f.write("param pen_m := " + "\n")
+temp = c_m
+f.write("param c_m := " + "\n")
 for j in range(0, len(s)):
     f.write(temp.index[j] + " ")
     f.write(str(temp[j]) + "\n")

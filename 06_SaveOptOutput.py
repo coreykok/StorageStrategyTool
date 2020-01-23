@@ -25,17 +25,17 @@ Profit_Hor = inst.profit.expr
 ## Load remaining variables
 # Storage state, charging, discharging
 S_df = pd.DataFrame.from_dict(inst.S.extract_values(), orient='index', columns=[str(inst.S)])
-pC_df = pd.DataFrame.from_dict(inst.pC.extract_values(), orient='index', columns=[str(inst.pC)])
-pD_df = pd.DataFrame.from_dict(inst.pD.extract_values(), orient='index', columns=[str(inst.pD)])
+p_ch_df = pd.DataFrame.from_dict(inst.p_ch.extract_values(), orient='index', columns=[str(inst.p_ch)])
+p_dc_df = pd.DataFrame.from_dict(inst.p_dc.extract_values(), orient='index', columns=[str(inst.p_dc)])
 
 # End-of-horizon shortage or excess
-S_sh_df = pd.DataFrame.from_dict(inst.S_sh.extract_values(), orient='index', columns=[str(inst.S_sh)])
-S_ex_df = pd.DataFrame.from_dict(inst.S_ex.extract_values(), orient='index', columns=[str(inst.S_ex)])
+S_m_df = pd.DataFrame.from_dict(inst.S_m.extract_values(), orient='index', columns=[str(inst.S_m)])
+S_p_df = pd.DataFrame.from_dict(inst.S_p.extract_values(), orient='index', columns=[str(inst.S_p)])
 ST_df = pd.DataFrame.from_dict(inst.ST.extract_values(), orient='index', columns=[str(inst.ST)])
 
 # Combines results into single data frame
-Horizon_df = pd.concat([S_df, pC_df, pD_df], axis=1)
-Final_df = pd.concat([S_sh_df, S_ex_df, ST_df], axis=1)
+Horizon_df = pd.concat([S_df, p_ch_df, p_dc_df], axis=1)
+Final_df = pd.concat([S_m_df, S_p_df, ST_df], axis=1)
 
 # Prepares output for plotting by appending iteration number, time-step and storage index as columns in data frame
 Horizon_df['i'] = pd.Series([i for x in range(len(Horizon_df.index))], index=Horizon_df.index)  # solve iteration

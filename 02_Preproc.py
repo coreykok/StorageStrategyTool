@@ -12,11 +12,11 @@ Input          : - Prices
 Output         : - Arrays with the values:
                     - t
                     - s
-                    - q_charge
-                    - q_disch
-                    - e_stor
-                    - e_charge
-                    - e_disch
+                    - q_ch
+                    - q_dc
+                    - e_st
+                    - e_ch
+                    - e_dc
                     - S_max
                     - Pi
 =========================================================================
@@ -28,18 +28,18 @@ t = range(0, T_horizon)  # time step array
 s = Storage.index  # set of storage devices
 
 # PARAMETERS
-q_charge = Storage['q_charge']  # Charging limit
-q_disch = Storage['q_disch']  # Discharge limit
-e_stor = Storage['e_stor']  # Energy retention
-e_charge = Storage['e_charge']  # Charging efficiency
-e_disch = Storage['e_disch']  # Discharge efficiency
+q_ch = Storage['q_ch']  # Charging limit
+q_dc = Storage['q_dc']  # Discharge limit
+e_st = Storage['e_st']  # Energy retention
+e_ch = Storage['e_ch']  # Charging efficiency
+e_dc = Storage['e_dc']  # Discharge efficiency
 S_max = Storage['S_max']  # Storage capacity
 S0 = Storage['S0']  # Initial storage state
 ST = Storage['ST']  # Ideal or enforced end of horizon storage state
 ST_p = Storage['ST_p']  # Maximum end-of-horizon storage state
 ST_m = Storage['ST_m']  # Minimum end-of-horizon storage state
-pen_p = Storage['pen_p']  # linear penalty multiplier for exceeding ideal storage state
-pen_m = Storage['pen_m']  # linear penalty multiplier for falling short of ideal storage state
+c_p = Storage['c_p']  # linear penalty multiplier for exceeding ideal storage state
+c_m = Storage['c_m']  # linear penalty multiplier for falling short of ideal storage state
 
 Time = Prices['Time']  # Time
 Pi = Prices['Pi']  # Market price

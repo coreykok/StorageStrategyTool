@@ -1,3 +1,3 @@
-s,q_charge,q_disch,e_stor,e_charge,e_disch,S_max,S0,ST,ST_p,ST_m,pen_p,pen_m
+s,q_ch,q_dc,e_st,e_ch,e_dc,S_max,S0,ST,ST_p,ST_m,c_p,c_m
 f1,50,100.0,0.6,0.95,1.0,10.0,5.0,5.0,8.0,4.0,0.01,100.0
 b1,50,100.0,0.999,0.4,1.0,50.0,25.0,25.0,40.0,20.0,0.01,300.0

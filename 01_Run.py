@@ -21,7 +21,7 @@ import pandas as pd
 
 # Initialise parameters
 T_horizon = 12  # Optimisation horizon: Corresponds to 60 minutes with 5 minute intervals
-T_delta = 1 / 12  # Time interval length
+delta_t = 1 / 12  # Time interval length
 
 # Load .csv file of market prices
 Prices = pd.read_csv("Input\Prices.csv")

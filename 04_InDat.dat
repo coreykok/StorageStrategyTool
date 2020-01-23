@@ -7,29 +7,29 @@ set te :=
 set s := 
 f1 b1 ;
 
-param t_delta := 0.08333333333333333;
+param delta_t := 0.08333333333333333;
 
-param q_charge := 
+param q_ch := 
 f1 50
 b1 50
 ;
 
-param q_disch := 
+param q_dc := 
 f1 100.0
 b1 100.0
 ;
 
-param e_stor := 
+param e_st := 
 f1 0.6
 b1 0.9990000000000001
 ;
 
-param e_charge := 
+param e_ch := 
 f1 0.95
 b1 0.4
 ;
 
-param e_disch := 
+param e_dc := 
 f1 1.0
 b1 1.0
 ;
@@ -49,12 +49,12 @@ f1 5.0
 b1 25.0
 ;
 
-param pen_p := 
+param c_p := 
 f1 0.01
 b1 0.01
 ;
 
-param pen_m := 
+param c_m := 
 f1 100.0
 b1 300.0
 ;
