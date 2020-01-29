@@ -142,7 +142,7 @@ f.write(";" + "\n" + "\n")
 
 f.write("param Pi := " + "\n")
 for j in range(0, len(t)):
-    f.write(str(j) + " ")
+    f.write(str(j+1) + " ")
     f.write(str(Pi[i+j]) + "\n")
 f.write(";" + "\n" + "\n")
 

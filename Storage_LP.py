@@ -25,28 +25,28 @@ mod.s = pe.Set()  # Set of storage devices s
 
 # PARAMETERS
 # Storage device
-mod.delta_t = pe.Param()  # Time step length
-mod.q_ch = pe.Param(mod.s)  # Charging limit
-mod.q_dc = pe.Param(mod.s)  # Discharge limit
-mod.e_st = pe.Param(mod.s)  # Energy retention
-mod.e_ch = pe.Param(mod.s)  # Charging efficiency
-mod.e_dc = pe.Param(mod.s)  # Discharge efficiency
-mod.S_max = pe.Param(mod.s)  # Storage capacity
-mod.S0 = pe.Param(mod.s)  # Initial storage state
-mod.ST = pe.Param(mod.s)  # Ideal or enforced end of horizon storage state
-mod.ST_p = pe.Param(mod.s)  # Maximum end-of-horizon storage state
-mod.ST_m = pe.Param(mod.s)  # Minimum end-of-horizon storage state
-mod.c_p = pe.Param(mod.s)  # linear penalty multiplier for exceeding ideal storage state
-mod.c_m = pe.Param(mod.s)  # linear penalty multiplier for falling short of ideal storage state
+mod.delta_t = pe.Param()  # Time step length (h)
+mod.q_ch = pe.Param(mod.s)  # Charging limit (kW)
+mod.q_dc = pe.Param(mod.s)  # Discharge limit (kW)
+mod.e_st = pe.Param(mod.s)  # Energy retention (1/h)
+mod.e_ch = pe.Param(mod.s)  # Charging efficiency (1/h)
+mod.e_dc = pe.Param(mod.s)  # Discharge efficiency (1/h)
+mod.S_max = pe.Param(mod.s)  # Storage capacity (kWh)
+mod.S0 = pe.Param(mod.s)  # Initial storage state (kWh)
+mod.ST = pe.Param(mod.s)  # Ideal or enforced end of horizon storage state (kWh)
+mod.ST_p = pe.Param(mod.s)  # Maximum end-of-horizon storage state (kWh)
+mod.ST_m = pe.Param(mod.s)  # Minimum end-of-horizon storage state (kWh)
+mod.c_p = pe.Param(mod.s)  # linear penalty multiplier for exceeding ideal storage state ($/kWh)
+mod.c_m = pe.Param(mod.s)  # linear penalty multiplier for falling short of ideal storage state ($/kWh)
 # Market
 mod.Pi = pe.Param(mod.t)  # Market price
 
 # Decision variables
-mod.S = pe.Var(mod.s, mod.t, within=pe.NonNegativeReals)  # Energy stored in device
-mod.p_ch = pe.Var(mod.s, mod.t, within=pe.NonNegativeReals)  # Power consumed to charge
-mod.p_dc = pe.Var(mod.s, mod.t, within=pe.NonNegativeReals)  # Power discharged
-mod.S_m = pe.Var(mod.s, within=pe.NonNegativeReals)  # End-of-horizon shortage from ideal storage state
-mod.S_p = pe.Var(mod.s, within=pe.NonNegativeReals)  # End-of-horizon excess from ideal storage state
+mod.S = pe.Var(mod.s, mod.t, within=pe.NonNegativeReals)  # Energy stored in device (kWh)
+mod.p_ch = pe.Var(mod.s, mod.t, within=pe.NonNegativeReals)  # Power consumed to charge (kW)
+mod.p_dc = pe.Var(mod.s, mod.t, within=pe.NonNegativeReals)  # Power discharged (kW)
+mod.S_m = pe.Var(mod.s, within=pe.NonNegativeReals)  # End-of-horizon shortage from ideal storage state (kWh)
+mod.S_p = pe.Var(mod.s, within=pe.NonNegativeReals)  # End-of-horizon excess from ideal storage state (kWh)
 
 
 # (1) Objective function:
@@ -61,7 +61,7 @@ mod.profit = pe.Objective(rule=profit_rule, sense=pe.maximize)
 
 # (2a) Storage State:
 def con2a_rule(mod, s, t):
-    if t == 0:
+    if t == 1:
         return mod.S[s, t] == (mod.e_st[s] ** mod.delta_t) * mod.S0[s] + \
                mod.delta_t * (mod.e_ch[s] * mod.p_ch[s, t] - mod.p_dc[s, t])
     else:

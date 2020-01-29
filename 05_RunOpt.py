@@ -27,5 +27,5 @@ opt = SolverFactory('glpk')
 res = opt.solve(inst)
 
 # Write the output
-res.write(num=1)
+#res.write(num=1)
 inst.solutions.load_from(res)

@@ -46,10 +46,10 @@ Horizon_df['Time'] = pd.Series([Time[i] for x in range(len(Horizon_df.index))], 
 Final_df['s'] = pd.Series([x for x in Final_df.index], index=Final_df.index)  # storage index
 Final_df['i'] = pd.Series([i for x in range(len(Final_df.index))], index=Final_df.index)  # solve iteration
 
-Next_df = Horizon_df[Horizon_df['t'] == 0]
+Next_df = Horizon_df[Horizon_df['t'] == 1]
 
 # Update next time-step with finalised decisions
-S1 = Horizon_df[Horizon_df['t'] == 0]['S']
+S1 = Horizon_df[Horizon_df['t'] == 1]['S']
 S1.index = Final_df.index
 
 # Combine data from all runs into a single data frame

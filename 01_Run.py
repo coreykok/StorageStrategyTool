@@ -34,8 +34,8 @@ Run pre-processing
 '''
 exec(open("02_Preproc.py").read())
 
-
 for i in range(0, NS):
+    print("Progress:", str(i+1), "/ " + str(NS)) # Uncomment to check progress of simulation
     S0_Input = S0  # Set storage state
     exec(open("03_WriteDat.py").read())  # Create data file
     exec(open("05_RunOpt.py").read())  # Optimisation Model

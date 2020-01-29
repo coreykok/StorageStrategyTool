@@ -24,7 +24,7 @@ Output         : - Arrays with the values:
 NS = len(Prices) - T_horizon # Times optimisation needs to be solved
 
 # SETS
-t = range(0, T_horizon)  # time step array
+t = range(1, T_horizon + 1)  # time step array
 s = Storage.index  # set of storage devices
 
 # PARAMETERS
