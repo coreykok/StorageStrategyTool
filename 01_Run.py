@@ -27,15 +27,13 @@ delta_t = 1 / 12  # Time interval length
 Prices = pd.read_csv("Input\Prices.csv")
 Storage = pd.read_csv("Input\Storage.csv", index_col='s')
 
-
-
 ''' 
 Run pre-processing
 '''
 exec(open("02_Preproc.py").read())
 
 for i in range(0, NS):
-    print("Progress:", str(i+1), "/ " + str(NS)) # Uncomment to check progress of simulation
+    # print("Progress:", str(i+1), "/ " + str(NS))  # Uncomment to check progress of simulation
     S0_Input = S0  # Set storage state
     exec(open("03_WriteDat.py").read())  # Create data file
     exec(open("05_RunOpt.py").read())  # Optimisation Model
@@ -46,4 +44,3 @@ for i in range(0, NS):
 final_Horizon_df.to_csv(r'Output\Horizon.csv', index=None, header=True)  # Storage Horizon
 final_Final_df.to_csv(r'Output\Final.csv', index=None, header=True)  # End of horizon deviation from ideal
 final_Next_df.to_csv(r'Output\Next.csv', index=None, header=True)  # Decisions finalised at current time-step
-
