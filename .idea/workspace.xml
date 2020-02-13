@@ -2,7 +2,29 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="ca5147ed-624b-4e1f-af8f-14d525930716" name="Default" comment="Renamed variables to match formulation">
+      <change afterPath="$PROJECT_DIR$/Input/Initial.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Input/Model.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.Rproj.user/2162807D/sources/prop/BA8F08CC" beforeDir="false" afterPath="$PROJECT_DIR$/.Rproj.user/2162807D/sources/prop/BA8F08CC" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/01_Run.py" beforeDir="false" afterPath="$PROJECT_DIR$/01_Run.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/02_Preproc.py" beforeDir="false" afterPath="$PROJECT_DIR$/02_Preproc.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/03_WriteDat.py" beforeDir="false" afterPath="$PROJECT_DIR$/03_WriteDat.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/04_InDat.dat" beforeDir="false" afterPath="$PROJECT_DIR$/04_InDat.dat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/06_SaveOptOutput.py" beforeDir="false" afterPath="$PROJECT_DIR$/06_SaveOptOutput.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Formulation.docx" beforeDir="false" afterPath="$PROJECT_DIR$/Formulation.docx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Input/Storage.csv" beforeDir="false" afterPath="$PROJECT_DIR$/Input/Storage.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ListOfPapers.xlsx" beforeDir="false" afterPath="$PROJECT_DIR$/ListOfPapers.xlsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Output/Final.csv" beforeDir="false" afterPath="$PROJECT_DIR$/Output/Final.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Output/Horizon.csv" beforeDir="false" afterPath="$PROJECT_DIR$/Output/Horizon.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Output/Next.csv" beforeDir="false" afterPath="$PROJECT_DIR$/Output/Next.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Plots/01_Netprofit.pdf" beforeDir="false" afterPath="$PROJECT_DIR$/Plots/01_Netprofit.pdf" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Plots/03_Power.pdf" beforeDir="false" afterPath="$PROJECT_DIR$/Plots/03_Power.pdf" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Plots/04_CumEnergy.pdf" beforeDir="false" afterPath="$PROJECT_DIR$/Plots/04_CumEnergy.pdf" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Plots/05_EnergyStored.pdf" beforeDir="false" afterPath="$PROJECT_DIR$/Plots/05_EnergyStored.pdf" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Plots/06_Losses.pdf" beforeDir="false" afterPath="$PROJECT_DIR$/Plots/06_Losses.pdf" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Plots/07_CumLosses.pdf" beforeDir="false" afterPath="$PROJECT_DIR$/Plots/07_CumLosses.pdf" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Storage_LP.py" beforeDir="false" afterPath="$PROJECT_DIR$/Storage_LP.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/~WRL3975.tmp" beforeDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -57,43 +79,45 @@
     <session id="-644995928">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
-          <entry key="project.closed" value="6" />
+          <entry key="project.closed" value="9" />
           <entry key="project.open.time.0" value="1" />
           <entry key="project.open.time.10" value="3" />
+          <entry key="project.open.time.11" value="1" />
           <entry key="project.open.time.7" value="1" />
           <entry key="project.open.time.8" value="1" />
-          <entry key="project.open.time.9" value="1" />
-          <entry key="project.opened" value="7" />
+          <entry key="project.open.time.9" value="2" />
+          <entry key="project.opened" value="9" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
-          <entry key="csv" value="15" />
+          <entry key="Python Console" value="33" />
+          <entry key="csv" value="65" />
           <entry key="dummy" value="20" />
-          <entry key="py" value="303" />
+          <entry key="py" value="1614" />
           <entry key="txt" value="38" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="CSV" value="15" />
+          <entry key="CSV" value="65" />
           <entry key="PLAIN_TEXT" value="58" />
-          <entry key="Python" value="303" />
+          <entry key="Python" value="1647" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
         <counts>
           <entry key="R" value="1" />
-          <entry key="csv" value="2" />
+          <entry key="csv" value="6" />
           <entry key="dat" value="1" />
-          <entry key="py" value="4" />
+          <entry key="py" value="8" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
-          <entry key="CSV" value="2" />
+          <entry key="CSV" value="6" />
           <entry key="PLAIN_TEXT" value="1" />
-          <entry key="Python" value="4" />
+          <entry key="Python" value="8" />
           <entry key="R" value="1" />
         </counts>
       </usages-collector>
@@ -101,20 +125,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/01_Run.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="362">
-              <caret line="35" column="6" selection-start-line="35" selection-start-column="6" selection-end-line="35" selection-end-column="6" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/03_WriteDat.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="2448">
-              <caret line="144" column="19" selection-start-line="144" selection-start-column="19" selection-end-line="144" selection-end-column="19" />
+            <state relative-caret-position="629">
+              <caret line="37" lean-forward="true" selection-start-line="37" selection-end-line="37" />
             </state>
           </provider>
         </entry>
@@ -122,8 +137,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/02_Preproc.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="442">
-              <caret line="26" column="26" selection-start-line="26" selection-start-column="26" selection-end-line="26" selection-end-column="26" />
+            <state relative-caret-position="136">
+              <caret line="8" column="21" selection-start-line="8" selection-start-column="21" selection-end-line="8" selection-end-column="21" />
             </state>
           </provider>
         </entry>
@@ -131,8 +146,26 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Input/Storage.csv">
           <provider selected="true" editor-type-id="text-editor">
-            <state>
-              <caret column="54" selection-start-column="54" selection-end-column="54" />
+            <state relative-caret-position="34">
+              <caret line="2" column="83" selection-start-line="2" selection-start-column="83" selection-end-line="2" selection-end-column="83" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Input/Model.csv">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="17">
+              <caret line="1" column="7" selection-start-line="1" selection-start-column="7" selection-end-line="1" selection-end-column="7" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/03_WriteDat.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="1283">
+              <caret line="84" selection-start-line="84" selection-end-line="84" />
             </state>
           </provider>
         </entry>
@@ -140,8 +173,21 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Storage_LP.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="617">
-              <caret line="63" column="13" selection-start-line="63" selection-start-column="13" selection-end-line="63" selection-end-column="13" />
+            <state relative-caret-position="22">
+              <caret line="207" column="18" lean-forward="true" selection-start-line="207" selection-start-column="18" selection-end-line="207" selection-end-column="18" />
+              <folding>
+                <marker date="1581612277190" expanded="true" signature="5021:5139" ph="..." />
+                <marker date="1581612277190" expanded="true" signature="8401:9174" ph="..." />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Input/Initial.csv">
+          <provider selected="true" editor-type-id="text-editor">
+            <state>
+              <caret column="13" selection-start-column="13" selection-end-column="13" />
             </state>
           </provider>
         </entry>
@@ -159,38 +205,18 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/04_InDat.dat">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="425">
-              <caret line="25" selection-start-line="25" selection-end-line="25" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Input/Prices.csv">
-          <provider selected="true" editor-type-id="text-editor">
-            <state>
-              <caret column="7" selection-start-column="7" selection-end-column="7" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/07_PlotOutput.R">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="204">
-              <caret line="39" column="26" lean-forward="true" selection-start-line="39" selection-start-column="26" selection-end-line="39" selection-end-column="26" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/06_SaveOptOutput.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="510">
-              <caret line="39" selection-start-line="39" selection-end-line="39" />
+            <state relative-caret-position="192">
+              <caret line="29" lean-forward="true" selection-start-line="29" selection-end-line="29" />
             </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/04_InDat.dat">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-357" />
           </provider>
         </entry>
       </file>
@@ -219,6 +245,9 @@
       <find>pC</find>
       <find>np</find>
       <find>mod.S[</find>
+      <find>aggre</find>
+      <find>b_loss</find>
+      <find>S0_Input</find>
     </findStrings>
     <replaceStrings>
       <replace>str(temp[j])</replace>
@@ -246,22 +275,23 @@
         <option value="$PROJECT_DIR$/02_WriteDat.py" />
         <option value="$PROJECT_DIR$/Input/Prices.csv" />
         <option value="$PROJECT_DIR$/LP.py" />
-        <option value="$PROJECT_DIR$/Input/Storage.csv" />
         <option value="$PROJECT_DIR$/07_PlotOutput.R" />
         <option value="$PROJECT_DIR$/02_Preproc.py" />
         <option value="$PROJECT_DIR$/03_WriteDat.py" />
-        <option value="$PROJECT_DIR$/Storage_LP.py" />
-        <option value="$PROJECT_DIR$/06_SaveOptOutput.py" />
-        <option value="$PROJECT_DIR$/05_RunOpt.py" />
         <option value="$PROJECT_DIR$/01_Run.py" />
+        <option value="$PROJECT_DIR$/06_SaveOptOutput.py" />
+        <option value="$PROJECT_DIR$/Input/Model.csv" />
+        <option value="$PROJECT_DIR$/Input/Storage.csv" />
+        <option value="$PROJECT_DIR$/Storage_LP.py" />
+        <option value="$PROJECT_DIR$/05_RunOpt.py" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="2108" />
+    <option name="x" value="360" />
     <option name="y" value="-17" />
-    <option name="width" value="1918" />
-    <option name="height" value="1020" />
+    <option name="width" value="1288" />
+    <option name="height" value="723" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectView">
@@ -291,11 +321,12 @@
           <select />
         </subPane>
       </pane>
+      <pane id="Scratches" />
     </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
-    <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
+    <property name="settings.editor.selected.configurable" value="reference.settings.ide.settings.notifications" />
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
@@ -379,10 +410,10 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="1912" y="-8" width="1936" height="1176" extended-state="6" />
+    <frame x="-8" y="-8" width="1936" height="1176" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.34488273" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.35607675" />
       <window_info id="Structure" order="1" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -395,7 +426,7 @@
       <window_info anchor="bottom" id="Version Control" order="7" />
       <window_info anchor="bottom" id="Terminal" order="8" weight="0.32917467" />
       <window_info anchor="bottom" id="Event Log" order="9" side_tool="true" />
-      <window_info anchor="bottom" id="Python Console" order="10" weight="0.32917467" />
+      <window_info anchor="bottom" id="Python Console" order="10" weight="0.37140116" />
       <window_info anchor="right" id="Commander" order="0" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
@@ -403,20 +434,20 @@
       <window_info anchor="right" id="R Packages" order="4" />
     </layout>
     <layout-to-restore>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.18176973" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.35607675" />
       <window_info id="Structure" order="1" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.32917467" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.32917467" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.32917467" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.39923224" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" weight="0.32917467" />
-      <window_info anchor="bottom" id="Version Control" order="7" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Version Control" order="7" />
       <window_info anchor="bottom" id="Terminal" order="8" weight="0.32917467" />
       <window_info anchor="bottom" id="Event Log" order="9" side_tool="true" />
-      <window_info anchor="bottom" id="Python Console" order="10" weight="0.32917467" />
+      <window_info active="true" anchor="bottom" id="Python Console" order="10" visible="true" weight="0.37140116" />
       <window_info anchor="right" id="Commander" order="0" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
@@ -436,8 +467,8 @@
       <breakpoints>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/01_Run.py</url>
-          <line>40</line>
-          <option name="timeStamp" value="12" />
+          <line>36</line>
+          <option name="timeStamp" value="15" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
@@ -504,13 +535,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$USER_HOME$/AppData/Local/Programs/Python/Python36/Lib/codecs.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="396">
-          <caret line="331" selection-start-line="331" selection-end-line="331" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://C:/Python27/Lib/site-packages/numpy/core/__init__.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="357">
@@ -548,24 +572,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/03_WriteDat.py">
+    <entry file="file://$PROJECT_DIR$/07_PlotOutput.R">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2448">
-          <caret line="144" column="19" selection-start-line="144" selection-start-column="19" selection-end-line="144" selection-end-column="19" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Input/Storage.csv">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret column="54" selection-start-column="54" selection-end-column="54" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/04_InDat.dat">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="425">
-          <caret line="25" selection-start-line="25" selection-end-line="25" />
+        <state relative-caret-position="1241">
+          <caret line="73" column="4" selection-start-line="73" selection-start-column="4" selection-end-line="73" selection-end-column="37" />
         </state>
       </provider>
     </entry>
@@ -576,32 +586,44 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/02_Preproc.py">
+    <entry file="file://$USER_HOME$/AppData/Local/Programs/Python/Python36/Lib/codecs.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="442">
-          <caret line="26" column="26" selection-start-line="26" selection-start-column="26" selection-end-line="26" selection-end-column="26" />
+        <state relative-caret-position="192">
+          <caret line="319" selection-start-line="319" selection-end-line="319" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/07_PlotOutput.R">
+    <entry file="file://$USER_HOME$/AppData/Roaming/Python/Python36/site-packages/pyomo/core/base/indexed_component.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="204">
-          <caret line="39" column="26" lean-forward="true" selection-start-line="39" selection-start-column="26" selection-end-line="39" selection-end-column="26" />
+        <state relative-caret-position="-4">
+          <caret line="546" column="38" lean-forward="true" selection-start-line="546" selection-start-column="38" selection-end-line="546" selection-end-column="38" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Input/Initial.csv">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret column="13" selection-start-column="13" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Input/Storage.csv">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="34">
+          <caret line="2" column="83" selection-start-line="2" selection-start-column="83" selection-end-line="2" selection-end-column="83" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/06_SaveOptOutput.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="510">
-          <caret line="39" selection-start-line="39" selection-end-line="39" />
+        <state relative-caret-position="192">
+          <caret line="29" lean-forward="true" selection-start-line="29" selection-end-line="29" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Storage_LP.py">
+    <entry file="file://$PROJECT_DIR$/04_InDat.dat">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="617">
-          <caret line="63" column="13" selection-start-line="63" selection-start-column="13" selection-end-line="63" selection-end-column="13" />
-        </state>
+        <state relative-caret-position="-357" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/05_RunOpt.py">
@@ -614,12 +636,59 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/01_Run.py">
+    <entry file="file://$PROJECT_DIR$/Storage_LP.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="362">
-          <caret line="35" column="6" selection-start-line="35" selection-start-column="6" selection-end-line="35" selection-end-column="6" />
+        <state relative-caret-position="22">
+          <caret line="207" column="18" lean-forward="true" selection-start-line="207" selection-start-column="18" selection-end-line="207" selection-end-column="18" />
+          <folding>
+            <marker date="1581612277190" expanded="true" signature="5021:5139" ph="..." />
+            <marker date="1581612277190" expanded="true" signature="8401:9174" ph="..." />
+          </folding>
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/Input/Model.csv">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="17">
+          <caret line="1" column="7" selection-start-line="1" selection-start-column="7" selection-end-line="1" selection-end-column="7" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/01_Run.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="629">
+          <caret line="37" lean-forward="true" selection-start-line="37" selection-end-line="37" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/02_Preproc.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="136">
+          <caret line="8" column="21" selection-start-line="8" selection-start-column="21" selection-end-line="8" selection-end-column="21" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/03_WriteDat.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1283">
+          <caret line="84" selection-start-line="84" selection-end-line="84" />
+        </state>
+      </provider>
+    </entry>
+  </component>
+  <component name="masterDetails">
+    <states>
+      <state key="ScopeChooserConfigurable.UI">
+        <settings>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+    </states>
   </component>
 </project>

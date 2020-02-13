@@ -24,21 +24,17 @@ T_horizon = 12  # Optimisation horizon: Corresponds to 60 minutes with 5 minute 
 delta_t = 1 / 12  # Time interval length
 
 # Load .csv file of market prices
-Prices = pd.read_csv("Input\Prices.csv")
-Storage = pd.read_csv("Input\Storage.csv", index_col='s')
+Model = pd.read_csv("Input\Model.csv")  # Load choices for which constraints are active
+Prices = pd.read_csv("Input\Prices.csv")  # Market prices for buying/selling electricity
+Initial = pd.read_csv("Input\Initial.csv", index_col='s')  # Initial state of storage devices
+Storage = pd.read_csv("Input\Storage.csv", index_col='s')  # Current state of storage devices
 
-''' 
-Run pre-processing
-'''
-exec(open("02_Preproc.py").read())
 
+exec(open("02_Preproc.py").read()) # Run pre-processing
 for i in range(0, NS):
-    # print("Progress:", str(i+1), "/ " + str(NS))  # Uncomment to check progress of simulation
-    S0_Input = S0  # Set storage state
-    exec(open("03_WriteDat.py").read())  # Create data file
-    exec(open("05_RunOpt.py").read())  # Optimisation Model
-    exec(open("06_SaveOptOutput.py").read())  # Process output for plotting
-    S0 = S1  # Update storage state for next step
+    exec(open("03_WriteDat.py").read())  # Creates data file in optimisation model
+    exec(open("05_RunOpt.py").read())  # Optimisation Model (included user options from Model.csv)
+    exec(open("06_SaveOptOutput.py").read())  # Process output for plotting and updates initial next timestep
 
 # Store Output
 final_Horizon_df.to_csv(r'Output\Horizon.csv', index=None, header=True)  # Storage Horizon

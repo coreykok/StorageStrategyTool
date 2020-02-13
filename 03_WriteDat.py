@@ -6,30 +6,21 @@ Script         : Writes .dat file for optimization problem
 Author         : Corey Kok
 Project        : -
 ========================================================================
-Input          : - Arrays with the values:
-                 - S_0_Input
-                 - t
+Input          : - t
                  - s
-                 - q_ch
-                 - q_dc
-                 - e_st
-                 - e_ch
-                 - e_dc
-                 - S_max
-                 - Pi_Input
+                 - Pi
+                 - DataFrames
+                    - Initial (initial state of each storage device_
+                    - Storage (fixed storage device parameters)
 
 
 Output         : - .dat file containing:
                     - t
                     - s
-                    - S_0
-                    - q_ch
-                    - q_dc
-                    - e_st
-                    - e_ch
-                    - e_dc
-                    - S_max
                     - Pi
+                    - Initial
+                    - Storage
+
 
 =========================================================================
 '''
@@ -39,13 +30,15 @@ import numpy as np
 f = open("04_InDat.dat", 'w')
 
 # SETS
+# Time steps
 f.write("set t := " + "\n")  # t
 f.write(str(np.array(t))[1 : -1] + ";" + "\n" + "\n")
 
+# Final timestep
 f.write("set te := " + "\n")  # t
 f.write(str(np.array(t)[-1]) + ";" + "\n" + "\n")
 
-
+# Storage devices
 f.write("set s := " + "\n")  # t
 for j in range(0, len(s)):
     f.write(s[j] + " ")
@@ -53,98 +46,38 @@ f.write(";" + "\n" + "\n")
 
 
 # PARAMETERS
+# Choose active constraints (update choices through /Input/Model.csv)
+for col in Model.columns:
+    f.write("param " + str(col) + " := " + str(Model[col][0]) + ";" + "\n\n")
 
+# Time-step length
 f.write("param delta_t := " + str(delta_t) + ";" + "\n\n")
 
-temp = q_ch
-f.write("param q_ch := " + "\n")
-for j in range(0, len(s)):
-    f.write(temp.index[j] + " ")
-    f.write(str(temp[j]) + "\n")
-f.write(";" + "\n" + "\n")
-
-temp = q_dc
-f.write("param q_dc := " + "\n")
-for j in range(0, len(s)):
-    f.write(temp.index[j] + " ")
-    f.write(str(temp[j]) + "\n")
-f.write(";" + "\n" + "\n")
-
-temp = e_st
-f.write("param e_st := " + "\n")
-for j in range(0, len(s)):
-    f.write(temp.index[j] + " ")
-    f.write(str(temp[j]) + "\n")
-f.write(";" + "\n" + "\n")
-
-temp = e_ch
-f.write("param e_ch := " + "\n")
-for j in range(0, len(s)):
-    f.write(temp.index[j] + " ")
-    f.write(str(temp[j]) + "\n")
-f.write(";" + "\n" + "\n")
-
-temp = e_dc
-f.write("param e_dc := " + "\n")
-for j in range(0, len(s)):
-    f.write(temp.index[j] + " ")
-    f.write(str(temp[j]) + "\n")
-f.write(";" + "\n" + "\n")
-
-temp = S_max
-f.write("param S_max := " + "\n")
-for j in range(0, len(s)):
-    f.write(temp.index[j] + " ")
-    f.write(str(temp[j]) + "\n")
-f.write(";" + "\n" + "\n")
-
-temp = S0_Input
-f.write("param S0 := " + "\n")
-for j in range(0, len(s)):
-    f.write(temp.index[j] + " ")
-    f.write(str(temp[j]) + "\n")
-f.write(";" + "\n" + "\n")
-
-temp = ST
-f.write("param ST := " + "\n")
-for j in range(0, len(s)):
-    f.write(temp.index[j] + " ")
-    f.write(str(temp[j]) + "\n")
-f.write(";" + "\n" + "\n")
-
-temp = c_p
-f.write("param c_p := " + "\n")
-for j in range(0, len(s)):
-    f.write(temp.index[j] + " ")
-    f.write(str(temp[j]) + "\n")
-f.write(";" + "\n" + "\n")
-
-temp = c_m
-f.write("param c_m := " + "\n")
-for j in range(0, len(s)):
-    f.write(temp.index[j] + " ")
-    f.write(str(temp[j]) + "\n")
-f.write(";" + "\n" + "\n")
-
-temp = ST_p
-f.write("param ST_p := " + "\n")
-for j in range(0, len(s)):
-    f.write(temp.index[j] + " ")
-    f.write(str(temp[j]) + "\n")
-f.write(";" + "\n" + "\n")
-
-temp = ST_m
-f.write("param ST_m := " + "\n")
-for j in range(0, len(s)):
-    f.write(temp.index[j] + " ")
-    f.write(str(temp[j]) + "\n")
-f.write(";" + "\n" + "\n")
-
+# Market prices
 f.write("param Pi := " + "\n")
 for j in range(0, len(t)):
     f.write(str(j+1) + " ")
     f.write(str(Pi[i+j]) + "\n")
 f.write(";" + "\n" + "\n")
+
+# Storage parameters
+# initial state
+for col in Initial.columns:
+    temp = Initial[col]
+    f.write("param " + str(col) + "0" + " := " + "\n")
+    for j in range(0, len(s)):
+        f.write(temp.index[j] + " ")
+        f.write(str(temp[j]) + "\n")
+    f.write(";" + "\n" + "\n")
+
+# fixed storage device properties
+for col in Storage.columns:
+    temp = Storage[col]
+    f.write("param " + str(col) + " := " + "\n")
+    for j in range(0, len(s)):
+        f.write(temp.index[j] + " ")
+        f.write(str(temp[j]) + "\n")
+    f.write(";" + "\n" + "\n")
 
 
 # Close .dat file

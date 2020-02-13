@@ -48,9 +48,16 @@ Final_df['i'] = pd.Series([i for x in range(len(Final_df.index))], index=Final_d
 
 Next_df = Horizon_df[Horizon_df['t'] == 1]
 
+
 # Update next time-step with finalised decisions
-S1 = Horizon_df[Horizon_df['t'] == 1]['S']
-S1.index = Final_df.index
+for j in Storage.index:
+      Initial['S'][j] = inst.S.extract_values()[j, 1]
+      Initial['p_dc'][j] = inst.p_dc.extract_values()[j, 1]
+      Initial['p_ch'][j] = inst.p_ch.extract_values()[j, 1]
+
+
+#S1 = Horizon_df[Horizon_df['t'] == 1]['S']
+#S1.index = Final_df.index
 
 # Combine data from all runs into a single data frame
 if i == 0:
