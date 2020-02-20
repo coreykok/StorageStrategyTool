@@ -1,35 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="ca5147ed-624b-4e1f-af8f-14d525930716" name="Default" comment="Renamed variables to match formulation">
-      <change afterPath="$PROJECT_DIR$/Input/Generation.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Input/Model_Barge.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Input/Prices_Barge.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Input/StorPenFun.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.Rhistory" beforeDir="false" afterPath="$PROJECT_DIR$/.Rhistory" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.Rproj.user/2162807D/sources/prop/BA8F08CC" beforeDir="false" afterPath="$PROJECT_DIR$/.Rproj.user/2162807D/sources/prop/BA8F08CC" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.Rproj.user/2162807D/viewer-cache/AECF3801.Rdata" beforeDir="false" afterPath="$PROJECT_DIR$/.Rproj.user/2162807D/viewer-cache/AECF3801.Rdata" afterDir="false" />
+    <list default="true" id="ca5147ed-624b-4e1f-af8f-14d525930716" name="Default" comment="Added to objective and constraints and defined two significantly different storage strategy examples using the same LP framework.">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/01_Run.py" beforeDir="false" afterPath="$PROJECT_DIR$/01_Run.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/02_Preproc.py" beforeDir="false" afterPath="$PROJECT_DIR$/02_Preproc.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/03_WriteDat.py" beforeDir="false" afterPath="$PROJECT_DIR$/03_WriteDat.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/04_InDat.dat" beforeDir="false" afterPath="$PROJECT_DIR$/04_InDat.dat" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/05_RunOpt.py" beforeDir="false" afterPath="$PROJECT_DIR$/05_RunOpt.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/06_SaveOptOutput.py" beforeDir="false" afterPath="$PROJECT_DIR$/06_SaveOptOutput.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Formulation.docx" beforeDir="false" afterPath="$PROJECT_DIR$/Formulation.docx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Input/Model.csv" beforeDir="false" afterPath="$PROJECT_DIR$/Input/Model.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Input/Prices.csv" beforeDir="false" afterPath="$PROJECT_DIR$/Input/Prices.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Input/Storage.csv" beforeDir="false" afterPath="$PROJECT_DIR$/Input/Storage.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Output/Final.csv" beforeDir="false" afterPath="$PROJECT_DIR$/Output/Final.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Output/Horizon.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Output/Next.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Plots/01_Netprofit.pdf" beforeDir="false" afterPath="$PROJECT_DIR$/Plots/01_Netprofit.pdf" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Plots/02_CumProfit.pdf" beforeDir="false" afterPath="$PROJECT_DIR$/Plots/02_CumProfit.pdf" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Plots/03_Power.pdf" beforeDir="false" afterPath="$PROJECT_DIR$/Plots/03_Power.pdf" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Plots/04_CumEnergy.pdf" beforeDir="false" afterPath="$PROJECT_DIR$/Plots/04_CumEnergy.pdf" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Plots/06_Losses.pdf" beforeDir="false" afterPath="$PROJECT_DIR$/Plots/06_Losses.pdf" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Plots/07_CumLosses.pdf" beforeDir="false" afterPath="$PROJECT_DIR$/Plots/07_CumLosses.pdf" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Storage_LP.py" beforeDir="false" afterPath="$PROJECT_DIR$/Storage_LP.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -101,13 +74,13 @@
           <entry key="csv" value="426" />
           <entry key="dummy" value="39" />
           <entry key="py" value="5005" />
-          <entry key="txt" value="38" />
+          <entry key="txt" value="223" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
           <entry key="CSV" value="426" />
-          <entry key="PLAIN_TEXT" value="77" />
+          <entry key="PLAIN_TEXT" value="262" />
           <entry key="Python" value="5077" />
         </counts>
       </usages-collector>
@@ -167,7 +140,7 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Storage_LP.py">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="2499">
@@ -189,7 +162,7 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/Output/GenerationHorizon.csv">
           <provider selected="true" editor-type-id="text-editor" />
         </entry>
@@ -426,7 +399,14 @@
       <option name="project" value="LOCAL" />
       <updated>1579803847991</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="Added to objective and constraints and defined two significantly different storage strategy examples using the same LP framework.">
+      <created>1582229361303</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1582229361304</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TodoView">
@@ -489,7 +469,8 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Renamed variables to match formulation" />
-    <option name="LAST_COMMIT_MESSAGE" value="Renamed variables to match formulation" />
+    <MESSAGE value="Added to objective and constraints and defined two significantly different storage strategy examples using the same LP framework." />
+    <option name="LAST_COMMIT_MESSAGE" value="Added to objective and constraints and defined two significantly different storage strategy examples using the same LP framework." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -720,16 +701,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Output/GenerationHorizon.csv">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/06_SaveOptOutput.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="535">
-          <caret line="71" selection-start-line="71" selection-end-line="71" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Input/Prices_Barge.csv">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1241">
@@ -747,6 +718,16 @@
           </folding>
         </state>
       </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/06_SaveOptOutput.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="535">
+          <caret line="71" selection-start-line="71" selection-end-line="71" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Output/GenerationHorizon.csv">
+      <provider selected="true" editor-type-id="text-editor" />
     </entry>
   </component>
   <component name="masterDetails">
