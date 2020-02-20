@@ -1,2 +1,2 @@
 _loss,_penEOH,_degrade,_ramp,_range,_gen,_clearing,_delta_t,t_horizon,i_fulltraj,i_invbat,i_invoth
-1,1,1,1,1,0,0,0.083333333,12,1,1,1
+1,1,1,1,1,1,1,0.083333333,12,1,1,1

@@ -28,4 +28,5 @@ res = opt.solve(inst)
 
 # Write the output
 #res.write(num=1)
+print(i)
 inst.solutions.load_from(res)
