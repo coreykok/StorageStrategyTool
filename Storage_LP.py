@@ -285,6 +285,13 @@ def con4b_rule(mod, s, t):
     else:
         return mod.S[s, t] >= mod.S_max[s] * mod.or_min[s]
 
+def con4c_rule(mod, s, t):
+    if mod._range == 1:
+        return Constraint.Skip
+    else:
+        return mod.S[s, t] <= mod.S_max[s]
+
+
 
 mod.con4a = Constraint(mod.s, mod.t, rule=con4a_rule)
 mod.con4b = Constraint(mod.s, mod.t, rule=con4b_rule)
